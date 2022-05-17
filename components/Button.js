@@ -1,56 +1,56 @@
-import { TouchableOpacity, View, Text, Image } from 'react-native'
-import React from 'react'
-import { COLORS, SIZES, SHADOWS, assets } from '../constants'
+import React from "react";
+import { TouchableOpacity, Text, Image } from "react-native";
 
-export const CircleButton = ({ imgUrl, handlerPress, ...props }) => {
-  return (
-   <TouchableOpacity
-    style={{ 
-        width: 40,
-        height: 40,
-        backgroundColor: COLORS.white,
-        position: 'absolute',
-        borderRadius: SIZES.extraLarge,
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...SHADOWS.light,
-        ...props,
-    }}
-    onPress={handlerPress}
-   >
-       <Image 
-            source={imgUrl}
-            resizeMode='contain'
-            style={{ width: 24, height: 24 }}
-       />
+import { COLORS, SIZES, FONTS, SHADOWS } from "../constants";
 
-   </TouchableOpacity>
-  )
-}
-export const RectButton = () => {
+export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
   return (
     <TouchableOpacity
-    style={{ 
+      style={{
         width: 40,
         height: 40,
         backgroundColor: COLORS.white,
-        position: 'absolute',
+        position: "absolute",
         borderRadius: SIZES.extraLarge,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
         ...SHADOWS.light,
         ...props,
-    }}
-    onPress={handlerPress}
-   >
-       <Image 
-            source={imgUrl}
-            resizeMode='contain'
-            style={{ width: 24, height: 24 }}
-       />
+      }}
+      onPress={handlePress}
+    >
+      <Image
+        source={imgUrl}
+        resizeMode="contain"
+        style={{ width: 24, height: 24 }}
+      />
+    </TouchableOpacity>
+  );
+};
 
-   </TouchableOpacity>
-  )
-}
+export const RectButton = ({ minWidth, fontSize, handlePress, ...props }) => {
+  return (
+    <TouchableOpacity
+      style={{
+        backgroundColor: COLORS.primary,
+        padding: SIZES.small,
+        borderRadius: SIZES.extraLarge,
+        minWidth: minWidth,
+        ...props,
+      }}
+      onPress={handlePress}
+    >
+      <Text
+        style={{
+          fontFamily: FONTS.semiBold,
+          fontSize: fontSize,
+          color: COLORS.white,
+          textAlign: "center",
+        }}
+      >
+        Place a bid
+      </Text>
+    </TouchableOpacity>
+  );
+};
 
- 
